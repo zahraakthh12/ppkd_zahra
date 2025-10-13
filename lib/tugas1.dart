@@ -27,7 +27,7 @@ class Tugas1 extends StatelessWidget {
             Icons.location_on,
             size: 30, color: Colors.red),
           
-          Text("Kebayoran Lama, Jakarta Selatan", style: TextStyle(fontSize: 20)),
+          Text("Kebayoran Lama, Jakarta Selatan", style: TextStyle(fontSize: 20, height: 3)),
         ],
       ),
 
@@ -36,7 +36,7 @@ class Tugas1 extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text("Saya seorang pelajar yang sedang belajar Flutter di PPKD Jakarta Pusat.",
-          style: TextStyle(fontSize: 10)),
+          style: TextStyle(fontSize: 10, height: 2)),
         ],
       ),
         ],
