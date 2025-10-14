@@ -53,6 +53,7 @@ class Tugas2 extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(Icons.phone_android),
+              // Spacer(),
               Text("0857-1054-6602"),
             ],)),
 
