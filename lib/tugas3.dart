@@ -6,29 +6,32 @@ class Tugas3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Home", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-      backgroundColor: Color(0xFF89A8B2)),
-      backgroundColor: Color(0xFFE5E1DA),
+      appBar: AppBar(title: Text("Home", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+      backgroundColor: Color.fromARGB(255, 185, 151, 158)),
+      backgroundColor: Color(0xFFF6F5F2),
       body: SingleChildScrollView(
         child: Column(
           children: [
             // Soal 1
-            Text("Formulir Pengguna", style: TextStyle(height:3, fontWeight: FontWeight.bold, fontSize: 20)),
-            Padding(padding: const EdgeInsets.only(left: 30.0, right: 30.0, bottom: 30.0),
+            SizedBox(height: 10),
+            Text("User Form", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+            SizedBox(height: 10),
+            Padding(padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 10.0),
             child: Container(
               padding: EdgeInsets.all(15.0),
-              decoration: BoxDecoration(color: Color(0xFFB3C8CF), borderRadius: BorderRadius.circular(15)),
+              decoration: BoxDecoration(color: Color.fromARGB(255, 214, 208, 198), borderRadius: BorderRadius.circular(5)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
               
                   //Input Nama
-                  Text("Nama", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+                  Text("Name", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
                   TextField(
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.all(2.0),
                       border: OutlineInputBorder(),
-                      hintText: "Masukkan Nama Anda",
+                      hintText: "Enter Your Name",
+                      hintStyle: TextStyle(fontSize: 12, color: Colors.grey),
                     ),
                   ),
               
@@ -39,51 +42,62 @@ class Tugas3 extends StatelessWidget {
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.all(2.0),
                       border: OutlineInputBorder(),
-                      hintText: "Masukkan Email Anda",
+                      hintText: "Enter Your Email",
+                      hintStyle: TextStyle(fontSize: 12, color: Colors.grey),
                     ),
                   ),
               
                   // Input No. HP
                   SizedBox(height: 10),
-                  Text("No. Handphone", style: TextStyle(fontWeight: FontWeight.bold)),
+                  Text("Phone Number", style: TextStyle(fontWeight: FontWeight.bold)),
                   TextField(
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.all(2.0),
                       border: OutlineInputBorder(),
-                      hintText: "Masukkan No. Handphone Anda"
+                      hintText: "Enter Your Phone Number",
+                      hintStyle: TextStyle(fontSize: 12, color: Colors.grey),
                     ),
                   ),
               
                   // Input Deskripsi
                   SizedBox(height: 10),
-                  Text("Deskripsi", style: TextStyle(fontWeight: FontWeight.bold)),
+                  Text("Description", style: TextStyle(fontWeight: FontWeight.bold)),
                   TextField(
+                    textAlign: TextAlign.center,
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.all(40.0),
                       border: OutlineInputBorder(),
-                      hintText: "Masukkan Deskripsi Anda",
+                      hintText: "Enter Your Description",
+                      hintStyle: TextStyle(fontSize: 12, color: Colors.grey),
                     )
                   )
                 ],),
             )),
         
             // Soal 2
-            Text("Galeri Grid", style: TextStyle(height: 3, fontWeight: FontWeight.bold, fontSize: 20)),
+            SizedBox(height: 10),
+            Text("Gallery Grid", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
             
-            GridView.builder(
-              padding: EdgeInsets.only(left: 30.0, right: 30.0, bottom: 30.0),
+            // Menampilkan grid
+            SizedBox(height: 10),
+            GridView.count(
+              crossAxisCount: 3,
+              mainAxisSpacing: 5,
+              crossAxisSpacing: 5,
+              physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                crossAxisSpacing: 8,
-                mainAxisSpacing: 8),
-              itemCount: 6,
-              itemBuilder: (BuildContext context, int index){
-                return Container(
-                  decoration: BoxDecoration(color: Color(0xFFB3C8CF)),);
-              },
-              ),
-        
+              padding: EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20.0),
+              children:
+              List.generate(6, (index){
+                return Container(alignment: Alignment.center,
+                color: Color.fromARGB(255, 214, 208, 198),
+
+                // Menambahkan teks di dalam kotak
+                child: Stack(
+                  children: [Text("Box ${index + 1}",
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),],
+                ),);
+              }),)
           ],),
       )
     ); 
