@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ppkd_zahra/Tugas6Flutter/custom_sign_in_widget.dart';
 import 'package:ppkd_zahra/Tugas6Flutter/app_color.dart';
 import 'package:ppkd_zahra/Tugas6Flutter/custom_text_field.dart';
+import 'package:ppkd_zahra/Tugas6Flutter/home_screen.dart';
 
 class Tugas6Flutter extends StatefulWidget {
   const Tugas6Flutter({super.key});
@@ -109,7 +110,10 @@ class _Tugas6FlutterState extends State<Tugas6Flutter> {
               height: 48.14,
               decoration: BoxDecoration(color: AppColor.blueFF, borderRadius: BorderRadius.circular(10.7)),
               child: TextButton(onPressed: (){
-                print("Menekan Log In!");
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                  );
               }, child: Text("Log In", style: TextStyle(fontFamily: customFont, fontSize: 21.74, color: AppColor.whiteFF, fontWeight: FontWeight.bold))),
             ),
             

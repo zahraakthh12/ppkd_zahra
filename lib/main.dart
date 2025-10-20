@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_zahra/NavButton/bottom_nav.dart';
+import 'package:ppkd_zahra/NavButton/drawer_nav.dart';
+import 'package:ppkd_zahra/NavButton/main_screen.dart';
 import 'package:ppkd_zahra/Tugas6Flutter/tugas6.dart';
 
 
@@ -32,7 +35,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Tugas6Flutter(),
+      home: BottomNavCustomDay15(),
     );
   }
 }
