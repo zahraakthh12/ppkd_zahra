@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:ppkd_zahra/NavButton/bottom_nav.dart';
 import 'package:ppkd_zahra/NavButton/drawer_nav.dart';
 import 'package:ppkd_zahra/NavButton/main_screen.dart';
 import 'package:ppkd_zahra/Tugas6Flutter/tugas6.dart';
+import 'package:ppkd_zahra/Tugas7Flutter/tugas7.dart';
+import 'package:ppkd_zahra/Tugas8Flutter/tugas8.dart';
 
 
-void main() {
+void main() async {
+  await initializeDateFormatting('id_ID', null);
   runApp(const MyApp());
 }
 
@@ -35,7 +39,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: BottomNavCustomDay15(),
+      home: Tugas7(),
     );
   }
 }
