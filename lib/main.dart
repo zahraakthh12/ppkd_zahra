@@ -6,6 +6,7 @@ import 'package:ppkd_zahra/NavButton/main_screen.dart';
 import 'package:ppkd_zahra/Tugas6Flutter/tugas6.dart';
 import 'package:ppkd_zahra/Tugas7Flutter/tugas7.dart';
 import 'package:ppkd_zahra/Tugas8Flutter/tugas8.dart';
+import 'package:ppkd_zahra/Tugas9Flutter/tugas9.dart';
 
 
 void main() async {
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Tugas8(),
+      home: Tugas9(),
     );
   }
 }
