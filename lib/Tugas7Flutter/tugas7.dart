@@ -12,6 +12,17 @@ class Tugas7 extends StatefulWidget {
 
 class _Tugas7State extends State<Tugas7> {
   int _selectedIndex = 0;
+
+  // Judul tiap AppBar Menu
+  static const List<String> _titles = [
+  "Syarat & Ketentuan",
+  "Mode Gelap",
+  "Pilih Kategori Produk",
+  "Pilih Tanggal Lahir",
+  "Atur Pengingat"
+];
+
+  // Memanggil setiap class menu
   static const List<Widget> _widgetOptions = [
     CheckBoxWidget(),
     SwitchWidget(),
@@ -19,6 +30,7 @@ class _Tugas7State extends State<Tugas7> {
     DatePickerWidget(),
     TimePickerWidget()
   ];
+
   void onTapDrawer(int index) {
     setState(() {
       _selectedIndex = index;
@@ -29,7 +41,7 @@ class _Tugas7State extends State<Tugas7> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Tugas 7 Flutter"), backgroundColor: Colors.brown[200],), backgroundColor: Colors.white,
+      appBar: AppBar(title: Text(_titles[_selectedIndex]), backgroundColor: Colors.brown[200],), backgroundColor: Colors.white,
       drawer: Drawer(
         child: ListView(
           children: [

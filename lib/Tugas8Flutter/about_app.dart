@@ -7,7 +7,7 @@ class AbboutApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-      appBar: AppBar(title: Text("Tentang Aplikasi", style: TextStyle(fontWeight: FontWeight.bold)), backgroundColor: const Color.fromARGB(255, 201, 173, 197)),
+      appBar: AppBar(title: Text("Tentang Aplikasi", style: TextStyle(fontWeight: FontWeight.bold)), backgroundColor: Colors.brown[200]),
       body: Padding(
         padding: const EdgeInsets.all(25),
         child: Column(
