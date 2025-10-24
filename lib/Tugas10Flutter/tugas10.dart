@@ -216,7 +216,6 @@ class _RegistScreenState extends State<RegistScreen> {
     return Row(
       children: [
         Text(text, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16))
-        // Text(text, style: TextStyle(fontSize: 12, color: AppColor.gray88)),
       ],
     );
   }

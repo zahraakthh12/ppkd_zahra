@@ -13,6 +13,7 @@ class AppImages {
   static const kulkas = "$assetImage/kulkas.jpg";
   static const mesincuci = "$assetImage/mesincuci.jpg";
   static const laptop = "$assetImage/laptop.jpg";
+  static const girl = "$assetImage/girl.jpg";
 }
 
 extension CurrencyFormatter on String {
