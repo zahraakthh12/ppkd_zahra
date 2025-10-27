@@ -1,31 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_zahra/Tugas11Flutter/database/db_helper.dart';
-import 'package:ppkd_zahra/Tugas11Flutter/model/student_model.dart';
 import 'package:ppkd_zahra/Tugas11Flutter/model/user_model.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ppkd_zahra/Tugas6Flutter/app_color.dart';
 
-class RegisterScreenDay19 extends StatefulWidget {
-  const RegisterScreenDay19({super.key});
+//Bahas Shared Preference
+class RegistPage extends StatefulWidget {
+  const RegistPage({super.key});
   static const id = "/register";
   @override
-  State<RegisterScreenDay19> createState() => _RegisterScreenDay19State();
+  State<RegistPage> createState() => _RegistPageState();
 }
 
-class _RegisterScreenDay19State extends State<RegisterScreenDay19> {
+class _RegistPageState extends State<RegistPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController usernameController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   bool isVisibility = false;
-    getData() {
-    DbHelper.getAllStudent();
-    setState(() {});
+  bool isFilled = false;
+
+  @override
+  void initState() {
+    super.initState();
+    emailController.addListener(_checkFields);
+    passwordController.addListener(_checkFields);
   }
+
+  void _checkFields() {
+    setState(() {
+      isFilled =
+          emailController.text.isNotEmpty && passwordController.text.isNotEmpty;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Stack(children: [buildBackground() ,buildLayer()]));
+    return Scaffold(body: Stack(children: [buildBackground(), buildLayer()]));
   }
+
+  // register() async {
+  //   Navigator.push(
+  //     context,
+  //     MaterialPageRoute(builder: (context) => HomeScreenDay15()),
+  //   );
+  // }
 
   final _formKey = GlobalKey<FormState>();
   SafeArea buildLayer() {
@@ -37,6 +57,7 @@ class _RegisterScreenDay19State extends State<RegisterScreenDay19> {
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              // crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
                   "Welcome",
@@ -45,6 +66,7 @@ class _RegisterScreenDay19State extends State<RegisterScreenDay19> {
                 height(12),
                 Text(
                   "Register to access your account",
+                  // style: TextStyle(fontSize: 14, color: AppColor.gray88),
                 ),
                 height(24),
                 buildTitle("Nama"),
@@ -61,20 +83,14 @@ class _RegisterScreenDay19State extends State<RegisterScreenDay19> {
                 ),
 
                 height(16),
-                buildTitle("Email"),
+                buildTitle("Username"),
                 height(12),
                 buildTextField(
-                  hintText: "Masukkan Email Anda",
-                  controller: emailController,
+                  hintText: "Enter your username",
+                  controller: usernameController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return "Email tidak boleh kosong";
-                    } else if (!value.contains('@')) {
-                      return "Email tidak valid";
-                    } else if (!RegExp(
-                      r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$",
-                    ).hasMatch(value)) {
-                      return "Format Email tidak valid";
+                      return "Username tidak boleh kosong";
                     }
                     return null;
                   },
@@ -97,10 +113,30 @@ class _RegisterScreenDay19State extends State<RegisterScreenDay19> {
                 ),
 
                 height(16),
+                buildTitle("Email Address"),
+                height(12),
+                buildTextField(
+                  hintText: "Enter your email",
+                  controller: emailController,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Email tidak boleh kosong";
+                    } else if (!value.contains('@')) {
+                      return "Email tidak valid";
+                    } else if (!RegExp(
+                      r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$",
+                    ).hasMatch(value)) {
+                      return "Format Email tidak valid";
+                    }
+                    return null;
+                  },
+                ),
+
+                height(16),
                 buildTitle("Password"),
                 height(12),
                 buildTextField(
-                  hintText: "Masukkan Password Anda",
+                  hintText: "Enter your password",
                   isPassword: true,
                   controller: passwordController,
                   validator: (value) {
@@ -113,64 +149,25 @@ class _RegisterScreenDay19State extends State<RegisterScreenDay19> {
                   },
                 ),
                 height(24),
+                LoginButton(
+                  text: "Register",
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      final UserModel data = UserModel(
+                        name: nameController.text,
+                        username: usernameController.text,
+                        phone: phoneController.text,
+                        email: emailController.text,
+                        password: passwordController.text,
+                      );
+                      DBHelper.registerUser(data);
+                      Fluttertoast.showToast(msg: "Register Berhasil");
 
-              LoginButton(
-              text: "Register",
-              onPressed: () {
-                if (nameController.text.isEmpty) {
-                  Fluttertoast.showToast(msg: "Nama belum diisi");
-                } else if (emailController.text.isEmpty) {
-                  Fluttertoast.showToast(msg: "Email belum diisi");
-                } else if (phoneController.text.isEmpty) {
-                  Fluttertoast.showToast(msg: "No. HP belum diisi");
-                } else if (passwordController.text.isEmpty) {
-                  Fluttertoast.showToast(msg: "Password belum diisi");
-                } else {
-                  final StudentModel dataStudent = StudentModel(
-                    name: nameController.text,
-                    email: emailController.text,
-                    phone: int.parse(phoneController.text),
-                    password: passwordController.text,
-                  );
-                  DbHelper.createStudent(dataStudent).then((value) {
-                    emailController.clear();
-                    phoneController.clear();
-                    passwordController.clear();
-                    nameController.clear();
-                    getData();
-                    Fluttertoast.showToast(msg: "Register Berhasil");
-                  });
-                }
-              },
-            ),
-
-            SizedBox(height: 30),
-            FutureBuilder(
-              future: DbHelper.getAllStudent(),
-              builder: (BuildContext context, AsyncSnapshot snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return CircularProgressIndicator();
-                } else {
-                  final data = snapshot.data as List<StudentModel>;
-                  return Expanded(
-                    child: ListView.builder(
-                      itemCount: data.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        final items = data[index];
-                        return Column(
-                          children: [
-                            ListTile(
-                              title: Text(items.name),
-                              subtitle: Text(items.email),
-                            ),
-                          ],
-                        );
-                      },
-                    ),
-                  );
-                }
-              },
-            ),
+                      Navigator.pop(context);
+                    } else {
+                    }
+                  },
+                ),
 
                 height(16),
 
@@ -179,7 +176,6 @@ class _RegisterScreenDay19State extends State<RegisterScreenDay19> {
                   children: [
                     Text(
                       "Have an account?",
-                      // style: TextStyle(fontSize: 12, color: AppColor.gray88),
                     ),
                     TextButton(
                       onPressed: () {
@@ -293,6 +289,8 @@ class LoginButton extends StatelessWidget {
         ),
         child: Text(
           text,
+
+
           // "Login",
           style: TextStyle(
             fontSize: 16,

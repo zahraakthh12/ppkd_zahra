@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_zahra/Tugas10Flutter/tugas10.dart';
 import 'package:ppkd_zahra/Tugas11Flutter/drawer_tugas11.dart';
-import 'package:ppkd_zahra/Tugas11Flutter/login_screen_furtopia.dart';
-import 'package:ppkd_zahra/Tugas11Flutter/view/register_screen.dart';
+import 'package:ppkd_zahra/Tugas11Flutter/view/login_page.dart';
+// import 'package:ppkd_zahra/Tugas11Flutter/view/register_screen.dart';
 import 'package:ppkd_zahra/Tugas9Flutter/constants.dart';
 import 'package:ppkd_zahra/preferences/drawer_18.dart';
 import 'package:ppkd_zahra/preferences/login_screen.dart';
@@ -26,19 +26,19 @@ class _SplashScreenDay18State extends State<SplashScreenDay18> {
     Future.delayed(Duration(seconds: 3)).then((value) async {
       var isLogin = await PreferenceHandler.getLogin();
       print(isLogin);
-      if (isLogin != null && isLogin == true) {
-        Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (context) => DrawerTugas11()),
-          (route) => false,
-        );
-      } else {
-        Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (context) => LoginScreenDay18()),
-          (route) => false,
-        );
-      }
+      // if (isLogin != null && isLogin == true) {
+      //   Navigator.pushAndRemoveUntil(
+      //     context,
+      //     MaterialPageRoute(builder: (context) => DrawerTugas11()),
+      //     (route) => false,
+      //   );
+      // } else {
+      //   Navigator.pushAndRemoveUntil(
+      //     context,
+      //     MaterialPageRoute(builder: (context) => LoginScreenDay18()),
+      //     (route) => false,
+      //   );
+      // }
     });
   }
 

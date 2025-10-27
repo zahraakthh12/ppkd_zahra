@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_zahra/Tugas11Flutter/login_screen_furtopia.dart';
-import 'package:ppkd_zahra/Tugas11Flutter/view/create_user.dart.dart';
-import 'package:ppkd_zahra/Tugas8Flutter/about_app.dart';
-import 'package:ppkd_zahra/Tugas9Flutter/list_model.dart';
+import 'package:ppkd_zahra/Tugas11Flutter/view/list_user.dart';
+import 'package:ppkd_zahra/Tugas11Flutter/view/login_page.dart';
 import 'package:ppkd_zahra/preferences/preference_handler.dart';
 
-class DrawerTugas11 extends StatefulWidget {
-  const DrawerTugas11({super.key});
+class DrawerPage extends StatefulWidget {
+  const DrawerPage({super.key});
 
   @override
-  State<DrawerTugas11> createState() => _DrawerTugas10State();
+  State<DrawerPage> createState() => _DrawerPageState();
 }
 
-class _DrawerTugas10State extends State<DrawerTugas11> {
+class _DrawerPageState extends State<DrawerPage> {
   int _selectedIndex = 0;
   static const List<String> _titles = [
   "Home",
 
 ];
   static const List<Widget> _widgetOptions = [
-    AbboutApp(),
+    ListUserPage(),
   ];
   void onTapDrawer(int index) {
     setState(() {
@@ -58,7 +56,7 @@ class _DrawerTugas10State extends State<DrawerTugas11> {
                 PreferenceHandler.removeLogin();
                 Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(builder: (context) => LoginScreenDay18()),
+                  MaterialPageRoute(builder: (context) => LoginPage()),
                   (route) => false,
                 );
               },

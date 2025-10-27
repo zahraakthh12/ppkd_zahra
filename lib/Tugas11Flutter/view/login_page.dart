@@ -2,20 +2,19 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_zahra/Tugas11Flutter/database/db_helper.dart';
 import 'package:ppkd_zahra/Tugas11Flutter/drawer_tugas11.dart';
-import 'package:ppkd_zahra/Tugas11Flutter/view/register_screen.dart';
-import 'package:ppkd_zahra/Tugas6Flutter/home_screen.dart';
-import 'package:ppkd_zahra/Tugas9Flutter/tugas9.dart';
+import 'package:ppkd_zahra/Tugas11Flutter/view/regist_page.dart';
+import 'package:ppkd_zahra/Tugas6Flutter/app_color.dart';
 import 'package:ppkd_zahra/preferences/preference_handler.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-class LoginScreenDay18 extends StatefulWidget {
-  const LoginScreenDay18({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
   static const id = "/login_screen18";
   @override
-  State<LoginScreenDay18> createState() => _LoginScreenDay18State();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginScreenDay18State extends State<LoginScreenDay18> {
+class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool isVisibility = false;
@@ -24,10 +23,10 @@ class _LoginScreenDay18State extends State<LoginScreenDay18> {
     return Scaffold(body: Stack(children: [buildBackground() ,buildLayer()]));
   }
 
-  login() async {
+   login() async {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => HomeScreen()),
+      MaterialPageRoute(builder: (context) => DrawerPage()),
     );
   }
 
@@ -41,7 +40,6 @@ class _LoginScreenDay18State extends State<LoginScreenDay18> {
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              // crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
                   "Welcome Back",
@@ -50,7 +48,6 @@ class _LoginScreenDay18State extends State<LoginScreenDay18> {
                 height(12),
                 Text(
                   "Login to access your account",
-                  // style: TextStyle(fontSize: 14, color: AppColor.gray88),
                 ),
                 height(24),
                 buildTitle("Email Address"),
@@ -93,20 +90,11 @@ class _LoginScreenDay18State extends State<LoginScreenDay18> {
                   alignment: Alignment.centerRight,
                   child: TextButton(
                     onPressed: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => HomeScreen()),
-                      // );
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => MeetSebelas()),
-                      // );
                     },
                     child: Text(
                       "Forgot Password?",
                       style: TextStyle(
                         fontSize: 12,
-                        // color: AppColor.orange,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -117,9 +105,8 @@ class _LoginScreenDay18State extends State<LoginScreenDay18> {
                   text: "Login",
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
-                      print(emailController.text);
                       PreferenceHandler.saveLogin(true);
-                      final data = await DbHelper.loginUser(
+                      final data = await DBHelper.loginUser(
                         email: emailController.text,
                         password: passwordController.text,
                       );
@@ -127,7 +114,7 @@ class _LoginScreenDay18State extends State<LoginScreenDay18> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => DrawerTugas11(),
+                            builder: (context) => DrawerPage(),
                           ),
                         );
                       } else {
@@ -149,12 +136,6 @@ class _LoginScreenDay18State extends State<LoginScreenDay18> {
                                   Navigator.pop(context);
                                 },
                               ),
-                              TextButton(
-                                child: Text("Ga OK"),
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                              ),
                             ],
                           );
                         },
@@ -162,16 +143,8 @@ class _LoginScreenDay18State extends State<LoginScreenDay18> {
                     }
                   },
                 ),
-                // height(20),
-                // LoginButton(
-                //   text: "Ke Day13",
-                //   onPressed: () {
-                //     Navigator.push(
-                //       context,
-                //       MaterialPageRoute(builder: (context) => DryWidgetDay13()),
-                //     );
-                //   },
-                // ),
+
+
                 height(16),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -185,7 +158,6 @@ class _LoginScreenDay18State extends State<LoginScreenDay18> {
                     ),
                     Text(
                       "Or Sign In With",
-                      // style: TextStyle(fontSize: 12, color: AppColor.gray88),
                     ),
                     Expanded(
                       child: Container(
@@ -206,6 +178,8 @@ class _LoginScreenDay18State extends State<LoginScreenDay18> {
                       backgroundColor: Colors.white,
                     ),
                     onPressed: () {
+
+
                       // Navigate to MeetLima screen menggunakan pushnamed
                       Navigator.pushNamed(context, "/meet_2");
                     },
@@ -229,14 +203,13 @@ class _LoginScreenDay18State extends State<LoginScreenDay18> {
                   children: [
                     Text(
                       "Don't have an account?",
-                      // style: TextStyle(fontSize: 12, color: AppColor.gray88),
                     ),
                     TextButton(
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => RegisterScreenDay19(),
+                            builder: (context) => RegistPage(),
                           ),
                         );
 
@@ -285,18 +258,18 @@ class _LoginScreenDay18State extends State<LoginScreenDay18> {
       decoration: InputDecoration(
         hintText: hintText,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(32),
+          borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide(
             color: Colors.black.withOpacity(0.2),
             width: 1.0,
           ),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(32),
+          borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide(color: Colors.black, width: 1.0),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(32),
+          borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide(
             color: Colors.black.withOpacity(0.2),
             width: 1.0,
@@ -311,7 +284,6 @@ class _LoginScreenDay18State extends State<LoginScreenDay18> {
                 },
                 icon: Icon(
                   isVisibility ? Icons.visibility_off : Icons.visibility,
-                  // color: AppColor.gray88,
                 ),
               )
             : null,
@@ -325,8 +297,36 @@ class _LoginScreenDay18State extends State<LoginScreenDay18> {
   Widget buildTitle(String text) {
     return Row(
       children: [
-        // Text(text, style: TextStyle(fontSize: 12, color: AppColor.gray88)),
       ],
+    );
+  }
+}
+
+class LoginButton extends StatelessWidget {
+  const LoginButton({super.key, this.onPressed, required this.text});
+  final void Function()? onPressed;
+  final String text;
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      height: 56,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColor.blueFF,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+        ),
+        child: Text(
+          text,
+          // "Login",
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+      ),
     );
   }
 }
