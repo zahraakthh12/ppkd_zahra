@@ -51,4 +51,25 @@ class DBHelper {
     print(results.map((e) => UserModel.fromMap(e)).toList());
     return results.map((e) => UserModel.fromMap(e)).toList();
   }
+
+    //UPDATE USER
+  static Future<void> updateUser(UserModel user) async {
+    final dbs = await db();
+    //Insert adalah fungsi untuk menambahkan data (CREATE)
+    await dbs.update(
+      tableUser,
+      user.toMap(),
+      where: "id = ?",
+      whereArgs: [user.id],
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+    print(user.toMap());
+  }
+
+  //DELETE USER
+  static Future<void> deleteUser(int id) async {
+    final dbs = await db();
+    //Insert adalah fungsi untuk menambahkan data (CREATE)
+    await dbs.delete(tableUser, where: "id = ?", whereArgs: [id]);
+  }
 }
