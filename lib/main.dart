@@ -3,6 +3,7 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'package:ppkd_zahra/Tugas11Flutter/splash_page.dart';
 import 'package:ppkd_zahra/Tugas14Flutter/views/houseselected.dart';
 import 'package:ppkd_zahra/Tugas14Flutter/views/splash_screen_hp.dart';
+import 'package:ppkd_zahra/Tugas15Flutter/views/splash_screen.dart';
 import 'package:ppkd_zahra/Tugas6Flutter/home_screen.dart';
 
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Hogwarts Houses',
+      title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: SplashScreenHP(),
+      home: SplashScreenDay33(),
     );
   }
 }
