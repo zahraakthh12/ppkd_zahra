@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "66818090390",
+    "project_id": "ppkd-b4-fe8f0",
+    "storage_bucket": "ppkd-b4-fe8f0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:66818090390:android:179b53625629f7819d29b7",
+        "android_client_info": {
+          "package_name": "com.example.ppkd_zahra"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHrDr2YFQGC7sAtVvzxnFwkpyQB7RlUtg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_zahra/Tugas10Flutter/tugas10.dart';
+import 'package:ppkd_zahra/Tugas15Flutter/views/login_screen.dart';
+import 'package:ppkd_zahra/Tugas15Flutter/views/register_screen.dart';
 import 'package:ppkd_zahra/Tugas8Flutter/about_app.dart';
 import 'package:ppkd_zahra/Tugas9Flutter/list_model.dart';
 import 'package:ppkd_zahra/preferences/login_screen.dart';
 import 'package:ppkd_zahra/preferences/preference_handler.dart';
-import 'package:ppkd_zahra/tugas4.dart';
-import 'package:ppkd_zahra/tugas5.dart';
+import 'package:ppkd_zahra/TugasFlutter/tugas4.dart';
+import 'package:ppkd_zahra/TugasFlutter/tugas5.dart';
 
 class DrawerWidget18 extends StatefulWidget {
   const DrawerWidget18({super.key});
@@ -83,7 +85,7 @@ class _DrawerWidget18State extends State<DrawerWidget18> {
                 PreferenceHandler.removeLogin();
                 Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(builder: (context) =>RegistScreen()),
+                  MaterialPageRoute(builder: (context) =>LoginScreenDay33()),
                   (route) => false,
                 );
               },

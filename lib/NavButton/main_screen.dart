@@ -1,9 +1,9 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:ppkd_zahra/Tugas6Flutter/home_screen.dart';
-import 'package:ppkd_zahra/tugas1.dart';
-import 'package:ppkd_zahra/tugas4.dart';
-import 'package:ppkd_zahra/tugas5.dart';
+import 'package:ppkd_zahra/TugasFlutter/tugas1.dart';
+import 'package:ppkd_zahra/TugasFlutter/tugas4.dart';
+import 'package:ppkd_zahra/TugasFlutter/tugas5.dart';
 
 class BottomNavDay15 extends StatefulWidget {
   const BottomNavDay15({super.key});

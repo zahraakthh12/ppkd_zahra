@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_zahra/Tugas7Flutter/menu_tugas7.dart';
-import 'package:ppkd_zahra/tugas4.dart';
-import 'package:ppkd_zahra/tugas5.dart';
+import 'package:ppkd_zahra/TugasFlutter/tugas4.dart';
+import 'package:ppkd_zahra/TugasFlutter/tugas5.dart';
 
 class Tugas7 extends StatefulWidget {
   const Tugas7({super.key});
@@ -22,7 +22,7 @@ class _Tugas7State extends State<Tugas7> {
   "Atur Pengingat"
 ];
 
-  // Memanggil setiap class menu
+  // Memanggil setiap
   static const List<Widget> _widgetOptions = [
     CheckBoxWidget(),
     SwitchWidget(),

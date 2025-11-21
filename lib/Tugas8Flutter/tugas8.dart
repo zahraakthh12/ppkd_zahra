@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_zahra/Tugas7Flutter/tugas7.dart';
 import 'package:ppkd_zahra/Tugas8Flutter/about_app.dart';
-import 'package:ppkd_zahra/tugas1.dart';
+import 'package:ppkd_zahra/TugasFlutter/tugas1.dart';
 
 class Tugas8 extends StatefulWidget {
   const Tugas8({super.key});

@@ -14,6 +14,8 @@ class AppImages {
   static const mesincuci = "$assetImage/mesincuci.jpg";
   static const laptop = "$assetImage/laptop.jpg";
   static const girl = "$assetImage/girl.jpg";
+  static const logo = "$assetImage/furtopia.png";
+  static const empty = "$assetImage/empty.png";
 }
 
 extension CurrencyFormatter on String {

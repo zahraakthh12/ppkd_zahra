@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_zahra/tugas4.dart';
-import 'package:ppkd_zahra/tugas5.dart';
+import 'package:ppkd_zahra/TugasFlutter/tugas4.dart';
+import 'package:ppkd_zahra/TugasFlutter/tugas5.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

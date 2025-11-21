@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:ppkd_zahra/Tugas11Flutter/splash_page.dart';
@@ -5,11 +6,13 @@ import 'package:ppkd_zahra/Tugas14Flutter/views/houseselected.dart';
 import 'package:ppkd_zahra/Tugas14Flutter/views/splash_screen_hp.dart';
 import 'package:ppkd_zahra/Tugas15Flutter/views/splash_screen.dart';
 import 'package:ppkd_zahra/Tugas6Flutter/home_screen.dart';
+import 'package:ppkd_zahra/firebase_options.dart';
 
 
 
 void main() async {
   await initializeDateFormatting('id_ID', null);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 

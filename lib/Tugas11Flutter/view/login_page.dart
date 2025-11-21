@@ -50,10 +50,10 @@ class _LoginPageState extends State<LoginPage> {
                   "Login to access your account",
                 ),
                 height(24),
-                buildTitle("Email Address"),
+                buildTitle("Email"),
                 height(12),
                 buildTextField(
-                  hintText: "Enter your email",
+                  hintText: "Masukkan Email Anda",
                   controller: emailController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -73,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
                 buildTitle("Password"),
                 height(12),
                 buildTextField(
-                  hintText: "Enter your password",
+                  hintText: "Masukkan Password Anda",
                   isPassword: true,
                   controller: passwordController,
                   validator: (value) {
@@ -92,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                     onPressed: () {
                     },
                     child: Text(
-                      "Forgot Password?",
+                      "Lupa Password?",
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w500,

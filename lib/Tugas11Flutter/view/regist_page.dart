@@ -69,10 +69,10 @@ class _RegistPageState extends State<RegistPage> {
                   // style: TextStyle(fontSize: 14, color: AppColor.gray88),
                 ),
                 height(24),
-                buildTitle("Nama"),
+                buildTitle("Nama Lengkap"),
                 height(12),
                 buildTextField(
-                  hintText: "Masukkan Nama Anda",
+                  hintText: "Masukkan Nama Lengkap Anda",
                   controller: nameController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -86,7 +86,7 @@ class _RegistPageState extends State<RegistPage> {
                 buildTitle("Username"),
                 height(12),
                 buildTextField(
-                  hintText: "Enter your username",
+                  hintText: "Masukkan Username Anda",
                   controller: usernameController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -113,10 +113,10 @@ class _RegistPageState extends State<RegistPage> {
                 ),
 
                 height(16),
-                buildTitle("Email Address"),
+                buildTitle("Email"),
                 height(12),
                 buildTextField(
-                  hintText: "Enter your email",
+                  hintText: "Masukkan Email Anda",
                   controller: emailController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -136,7 +136,7 @@ class _RegistPageState extends State<RegistPage> {
                 buildTitle("Password"),
                 height(12),
                 buildTextField(
-                  hintText: "Enter your password",
+                  hintText: "Masukkan Password Anda",
                   isPassword: true,
                   controller: passwordController,
                   validator: (value) {
