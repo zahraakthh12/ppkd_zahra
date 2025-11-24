@@ -6,11 +6,11 @@ import 'package:ppkd_zahra/Tugas14Flutter/views/houseselected.dart';
 import 'package:ppkd_zahra/Tugas14Flutter/views/splash_screen_hp.dart';
 import 'package:ppkd_zahra/Tugas15Flutter/views/splash_screen.dart';
 import 'package:ppkd_zahra/Tugas6Flutter/home_screen.dart';
+import 'package:ppkd_zahra/day_39/views/register_screen.dart';
 import 'package:ppkd_zahra/firebase_options.dart';
 
-
-
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await initializeDateFormatting('id_ID', null);
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: SplashScreenDay33(),
+      home: RegisterScreenDay33(),
     );
   }
 }
